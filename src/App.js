@@ -7,12 +7,19 @@ import TodoItemsList from './components/TodoItemsList'
 class App extends Component {
   state = {itemsList: []}
 
-  addItem = () => {
+  takeItemNameFromInputBox = () => {
     let inputField = this.refs.TodoInput.refs.inputField;
-    let inputValue = inputField.value;
+    let itemName = inputField.value;
     inputField.value = "";
-    this.state.itemsList.push(inputValue);
-    this.setState(this.state);
+    return itemName;
+  }
+
+  addItem = () => {
+    let itemName = this.takeItemNameFromInputBox();
+    if (itemName !== "") {
+      this.state.itemsList.push(itemName);
+      this.setState(this.state);
+    }
   }
 
   render() {
