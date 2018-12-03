@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
 class TodoItemsList extends Component {
-  state = {itemList: ['a', 'b', 'c']};
+  state = {itemsList: this.props.itemsList};
 
   render() {
     return (
       <ul>
-          {this.state.itemList.map((itemName) => (<li>{itemName}</li>))}
+          {this.state.itemsList.map((itemName) => (<li>{itemName}</li>))}
       </ul>
     );
   }

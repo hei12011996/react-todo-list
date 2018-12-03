@@ -5,11 +5,15 @@ import TodoInput from './components/TodoInput'
 import TodoItemsList from './components/TodoItemsList'
 
 class App extends Component {
+  state = {itemsList: ['item1', 'item2', 'item3']}
+
+
+
   render() {
     return (
       <div>
           <TodoInput />
-          <TodoItemsList />
+          <TodoItemsList itemsList={this.state.itemsList}/>
       </div>
     );
   }
