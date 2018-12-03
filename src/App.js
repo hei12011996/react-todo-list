@@ -5,14 +5,20 @@ import TodoInput from './components/TodoInput'
 import TodoItemsList from './components/TodoItemsList'
 
 class App extends Component {
-  state = {itemsList: ['item1', 'item2', 'item3']}
+  state = {itemsList: []}
 
-
+  addItem = () => {
+    let inputField = this.refs.TodoInput.refs.inputField;
+    let inputValue = inputField.value;
+    inputField.value = "";
+    this.state.itemsList.push(inputValue);
+    this.setState(this.state);
+  }
 
   render() {
     return (
       <div>
-          <TodoInput />
+          <TodoInput addItem={this.addItem} ref="TodoInput" />
           <TodoItemsList itemsList={this.state.itemsList}/>
       </div>
     );

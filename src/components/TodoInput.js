@@ -4,8 +4,8 @@ class TodoInput extends Component {
   render() {
     return (
       <div>
-        <input type="text" name="todo-item-input"/>
-        <button>Add Item</button>
+        <input type="text" ref="inputField"/>
+        <button onClick = {this.props.addItem} >Add Item</button>
       </div>
     );
   }
