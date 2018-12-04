@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 
 class TodoItemsList extends Component {
-  state = {itemsList: this.props.itemsList};
+  state = {itemsList: []};
+  
+  receiveNewItem = (itemName) => {
+    this.state.itemsList.push(itemName);
+    this.setState(this.state);
+  }
 
   render() {
     return (

@@ -5,7 +5,6 @@ import TodoInput from './components/TodoInput'
 import TodoItemsList from './components/TodoItemsList'
 
 class App extends Component {
-  state = {itemsList: []}
 
   takeItemNameFromInputBox = () => {
     let inputField = this.refs.TodoInput.refs.inputField;
@@ -17,8 +16,7 @@ class App extends Component {
   addItem = () => {
     let itemName = this.takeItemNameFromInputBox();
     if (itemName !== "") {
-      this.state.itemsList.push(itemName);
-      this.setState(this.state);
+      this.refs.TodoItemsList.receiveNewItem(itemName);
     }
   }
 
@@ -26,7 +24,7 @@ class App extends Component {
     return (
       <div>
           <TodoInput addItem={this.addItem} ref="TodoInput" />
-          <TodoItemsList itemsList={this.state.itemsList}/>
+          <TodoItemsList ref="TodoItemsList"/>
       </div>
     );
   }
